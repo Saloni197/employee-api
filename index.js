@@ -1,19 +1,16 @@
 const express = require('express');
 
-
-const employeeRouter = require('./routes/employee.js')
+const connectDB = require('./database/connection.js');
 
 
 const app = express()
-const port = process.env.PORT || 3000
+const port = 3000
+connectDB();
 
 app.use(express.json())
-app.use(employeeRouter)
 
-app.get('/',(req,res)=>
-{
-    res.send('hello everybody!!')
-})
+app.use('/',require('./routes/routes.js'))
+
 app.listen(port,()=>{
     console.log(`server running on port:- localhost:${port}`)
 })
