@@ -7,7 +7,10 @@ const employeeschema = new mongoose.Schema(
             required:true
         },
         "mobile":{
-            type:Number
+            type:Number,
+            trim:true,
+            // min:10,
+            // max:10
             
         },
         "department":{
